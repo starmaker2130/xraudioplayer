@@ -1,0 +1,33 @@
+
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>XRAudioPlayer| spawn| v. 0.12.3</title>
+            <link rel=stylesheet type="text/css" href='../../css/XRMP.css' />
+            <script src='../js/jquery-3.2.1.min.js'></script>
+            <script src='../js/aframe.min.js'></script>
+            <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
+            <script src='../js/coreUX.js'></script> <!-- handles movement, styling, and interactivity of core ui components in the dom -->
+            <script src='../js/XRAudioPlayer.js'></script> <!-- contains the class function for creating xr audio player objects -->
+            <script>
+
+                document.addEventListener('DOMContentLoaded', function(){
+                    var player = new XRAudioPlayer();   //create an xr audio player object
+                    player.build();player.add('../media/img/Blonde.png', '../media/audio/Nights.mp3', {title: 'Nights', author: 'Frank Ocean', year: '2016'});player.add('../media/img/Scenes.png', '../media/audio/ScenesFromAnItalianRestaurant.mp3', {title: 'Scenes from An Italian', author: 'Billy Joel', year: '1977'});player.add('../media/img/Yesterday.png', '../media/audio/Yesterday.mp3', {title: 'Yesterday', author: 'Noname', year: '2016'});coreEventListeners.launch([player]);    //  tell the core page launcher to start 
+                                                            //  playing audio once the app is launched by the user (on screen tap)
+
+                });
+            </script>
+        </head>
+        <body>
+           <div id='launch-application-page' class='entry-layer overlay'>
+                <div id='instructions'>
+                    tap anywhere
+                    <div id='logo'></div>
+                    to launch
+                </div>
+            </div>
+            <div id='main-app-container' class='viewer-layer'>
+            </div>
+        </body>
+        </html>

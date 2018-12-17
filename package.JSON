@@ -1,0 +1,19 @@
+{
+  "name": "xraudioplayer",
+  "version": "0.12.18",
+  "description": "xraudioplayer object and interface for webxr projects made by patrice-morgan ongoly for eos @ the house of venus",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/starmaker2130/xraudioplayer.git"
+  },
+  "author": "Patrice-Morgan Ongoly (http://door.today)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/starmaker2130/xraudioplayer/issues"
+  },
+  "homepage": "https://github.com/starmaker2130/xraudioplayer#readme"
+}
