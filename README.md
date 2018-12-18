@@ -19,6 +19,7 @@ npm install xraudioplayer
 2. import xraudioplayer (using require is recommended since not all releases of Node have the newest ES6 features enabled by default)
 (a) using add method
 
+```javascript
 var XRMP = require('xraudioplayer');
 var myPlayer = XRMP.XRAudioPlayer;
 
@@ -27,10 +28,12 @@ myPlayer.add('../media/img/OracularSpectacular.png', '../media/audio/TheYouth.mp
 myPlayer.add('../media/img/ExtraFine.png', '../media/audio/ExtraFine.mp3', { title: 'Extra Fine', author: 'Starmaker', year: 2019});
 
 myPlayer.spawn();
+```
 
 (b) using addFromList method
 an object or array of objects in the following format can be processed by the module to generate same outcome as above
 
+```javascript
 var XRMP = require('xraudioplayer');
 var myPlayer = XRMP.XRAudioPlayer;
 
@@ -57,7 +60,7 @@ var collection = {
 
 myPlayer.addFromList(collection);
 myPlayer.spawn();
-
+```
 
 ### Client-Side
 
@@ -66,6 +69,20 @@ myPlayer.spawn();
 
 | method        | description   | Cool  |
 | ------------- |:-------------:| -----:|
-| function 1    | method        | $1600 |
-| function 2    | method        |   $12 |
-| function 3    | method        |    $1 |
+| type          | method        | $1600 |
+| socket        | method        |   $12 |
+| hello         | method        |    $1 |
+| buildCoreMarkup | method        |    $1 |
+| spawn         | method        |    $1 |
+| assetsContainer | method        |    $1 |
+| build         | method        |    $1 |
+| addbuild      | method        |    $1 |
+| addFromList   | method        |    $1 |
+| showTrackList | method        |    $1 |
+| playNextTrack | method        |    $1 |
+| playPreviousTrack | method  |  $1 |
+| stream        | method        |    $1 |
+| application   | method        |    $1 |
+| view          | method        |    $1 |
+| XRSetting     | method        |    $1 |
+    
