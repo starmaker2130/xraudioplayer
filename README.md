@@ -16,10 +16,15 @@ Users can view content using a wide range of devices and formats. Developers can
 
 ### Server-Side
 1. install using npm
+
+```javascript
 npm install xraudioplayer
+```
 
 2. import xraudioplayer (using require is recommended since not all releases of Node have the newest ES6 features enabled by default)
+
 (a) using add method
+
 
 ```javascript
 var XRMP = require('xraudioplayer');
@@ -32,7 +37,10 @@ myPlayer.add('../media/img/ExtraFine.png', '../media/audio/ExtraFine.mp3', { tit
 myPlayer.spawn();
 ```
 
+
 (b) using addFromList method
+
+
 an object or array of objects in the following format can be processed by the module to generate same outcome as above
 
 ```javascript
