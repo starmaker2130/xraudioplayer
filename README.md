@@ -74,6 +74,19 @@ myPlayer.spawn();
 
 ### Client-Side
 
+1. download the boilerplate or make your own test directory
+2. move to the app.js or index.js level of the directory and create a test.js file
+3. implement as follows:
+
+```javascript
+var myPlayer = new XRAudioPlayer();
+myPlayer.build();
+
+myPlayer.add('../media/img/OracularSpectacular.png', '../media/audio/TheYouth.mp3' , { title: 'The Youth', author: 'MGMT', year: 2007});
+
+coreEventListeners.launch([myPlayer]);
+```
+
 ### Full API
 
 
