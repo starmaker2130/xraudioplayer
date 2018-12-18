@@ -10,9 +10,9 @@ Users can view content using a wide range of devices and formats. Developers can
 
 ## Usage:
 
-[Server-side](###server-side)
+[Server-side](#server-side)
 
-[Client-side](###client-side)
+[Client-side](#client-side)
 
 ### Server-Side
 1. install using npm
