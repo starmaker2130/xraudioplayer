@@ -9,10 +9,10 @@ The **_XRAudioPlayer_** is a subset of the experimental **_XRMediaPlayer_** obje
 Users can view content using a wide range of devices and formats. Developers can be implement the module in a few lines of JavaScript code in both modular server-side and non-modular client-side applications.
 
 ## Usage:
-⋅⋅* server-side
-⋅⋅* client-side
+[Server-side](#server-side)
+[Client-side](#client-side)
 
-### Server-Side
+# Server-Side
 1. install using npm
 npm install xraudioplayer
 
@@ -62,15 +62,15 @@ myPlayer.addFromList(collection);
 myPlayer.spawn();
 ```
 
-### Client-Side
+# Client-Side
 
 ### Full API
 
 
-| method        | description   | Cool  |
+| property       | type   | Cool  |
 | ------------- |:-------------:| -----:|
-| type          | method        | $1600 |
-| socket        | method        |   $12 |
+| type          | read-only property        | $1600 |
+| socket        | object        |   $12 |
 | hello         | method        |    $1 |
 | buildCoreMarkup | method        |    $1 |
 | spawn         | method        |    $1 |
