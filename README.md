@@ -4,9 +4,9 @@ an XR audio player for web experiences and distributed applications
 
 The **_XRAudioPlayer_** is a subset of the experimental **_XRMediaPlayer_** object. The latter is going to be under heavy development as of the end of this week given the start of the winter term (expected release: February 2, 2019).
 
-**_XRAudioPlayer_** as the name suggests generates an audio player that users can experience in VR, AR, or traditinoal flat modes. Experiences are generated using Three.js and AFrame to achieve a secure, cross-platform standard for immersive web experiences.
+**_XRAudioPlayer_** as the name suggests generates an audio player that users can experience in VR, AR, or traditional flat modes. Experiences at their core use Three.js/AFrame to achieve a secure, cross-platform standard for immersive web experiences.
 
-Users can view content using a wide range of devices and formats. Developers can be implement the module in a few lines of JavaScript code in both modular server-side and non-modular client-side applications.
+Users can view content using a wide range of devices and formats. Developers can implement the module in both modular server-side and non-modular client-side applications with just a few lines of JavaScript code.
 
 ## Usage:
 
@@ -15,17 +15,13 @@ Users can view content using a wide range of devices and formats. Developers can
 [Client-side](#client-side)
 
 ### Server-Side
-1. install using npm
-
+ 1. install using npm
 ```javascript
 npm install xraudioplayer
 ```
+ 2. import xraudioplayer (using require is recommended: not all releases of Node have the newest ES6 features enabled by default)
 
-2. import xraudioplayer (using require is recommended since not all releases of Node have the newest ES6 features enabled by default)
-
-(a) using add method
-
-
+ (a) using add method
 ```javascript
 var XRMP = require('xraudioplayer');
 var myPlayer = XRMP.XRAudioPlayer;
@@ -36,9 +32,7 @@ myPlayer.add('../media/img/ExtraFine.png', '../media/audio/ExtraFine.mp3', { tit
 
 myPlayer.spawn();
 ```
-
-
-(b) using addFromList method
+ (b) using addFromList method
 
 
 an object or array of objects in the following format can be processed by the module to generate same outcome as above

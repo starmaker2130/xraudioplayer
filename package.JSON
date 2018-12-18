@@ -1,7 +1,7 @@
 {
   "name": "xraudioplayer",
-  "version": "0.12.18",
-  "description": "xraudioplayer object and interface for webxr projects made by patrice-morgan ongoly for eos @ the house of venus",
+  "version": "0.12.19",
+  "description": "audio player object and interface for xr web projects made by patrice-morgan ongoly for the house of venus",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
