@@ -90,22 +90,22 @@ coreEventListeners.launch([myPlayer]);
 ### Full API
 
 
-| property       | type   | Cool  |
+| property       | type   | description |
 | ------------- |:-------------:| -----:|
-| type          | read-only property        | $1600 |
-| socket        | object        |   $12 |
-| hello         | method        |    $1 |
-| buildCoreMarkup | method        |    $1 |
-| spawn         | method        |    $1 |
-| assetsContainer | method        |    $1 |
-| build         | method        |    $1 |
-| addbuild      | method        |    $1 |
-| addFromList   | method        |    $1 |
-| showTrackList | method        |    $1 |
-| playNextTrack | method        |    $1 |
-| playPreviousTrack | method  |  $1 |
-| stream        | method        |    $1 |
-| application   | method        |    $1 |
-| view          | method        |    $1 |
-| XRSetting     | method        |    $1 |
+| type          | string       | short paragraph descriptor of type property |
+| socket        | object        |  short paragraph descriptor of socket object |
+| hello         | method        | short paragraph descriptor of hello method|
+| buildCoreMarkup | method        | short paragraph descriptor of buildCoreMarkup method|
+| spawn         | method        | short paragraph descriptor of spawn method|
+| assetsContainer | object        | short paragraph descriptor of assetContainer object |
+| build         | method        | short paragraph descriptor of build method |
+| add           | method        | short paragraph descriptor of add method |
+| addFromList   | method        | short paragraph descriptor of addFromList method |
+| showTrackList | method        | short paragraph descriptor of showTrackList method |
+| playNextTrack | method        | short paragraph descriptor of playNextTrack method |
+| playPreviousTrack | method  |  short paragraph descriptor of playPreviousTrack method |
+| stream        | method        | short paragraph descriptor of type method |
+| application   | object        | short paragraph descriptor of type object |
+| view          | string        | short paragraph descriptor of type property |
+| XRSetting     | string        | short paragraph descriptor of type property |
     
