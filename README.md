@@ -1,6 +1,8 @@
 # XRAudioPlayer
 
-an XR audio player for web experiences and distributed applications
+for emily
+
+an audio player for web XR experiences and distributed applications
 
 The **_XRAudioPlayer_** is a subset of the experimental **_XRMediaPlayer_** object. The latter is going to be under heavy development as of the end of this week given the start of the winter term (expected release: February 2, 2019).
 
