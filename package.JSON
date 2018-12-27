@@ -1,7 +1,7 @@
 {
   "name": "xraudioplayer",
-  "version": "0.12.19",
-  "description": "audio player object and interface for xr web projects made by patrice-morgan ongoly for the house of venus",
+  "version": "0.12.25",
+  "description": "audio player interface for web xr projects made by patrice-morgan ongoly for the house of venus",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/starmaker2130/xraudioplayer.git"
   },
-  "author": "Patrice-Morgan Ongoly (http://door.today)",
+  "author": "Patrice-Morgan Ongoly (http://houseofven.us)",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/starmaker2130/xraudioplayer/issues"
