@@ -36,7 +36,7 @@ var VRAudioPlayer = {
             <script>
 
                 document.addEventListener('DOMContentLoaded', function(){
-                    var player = new XRAudioPlayer();   //create an xr audio player object
+                    var player = new VRAudioPlayer();   //create an xr audio player object
                     player.build();`;
         
         var base = `coreEventListeners.launch([player]);    //  tell the core page launcher to start 
@@ -72,8 +72,9 @@ var VRAudioPlayer = {
 
         fs.writeFile(filepath, finalDraft, (err) => {
             if (err) throw err;
-            console.log('saving playlist as "vrsampleplaylist.html" in "$_project_dir/rooms/"...');
+            console.log('\n\nSaving playlist as "vrsampleplaylist.html" in project "room" folder...');
             console.log("The file was succesfully saved!");
+            console.log('-------------------------');
         }); 
     },
     assetsContainer: null,
@@ -102,7 +103,8 @@ var VRAudioPlayer = {
 
         self.application.core.trackList.push(track);
         console.log('--------');
-        console.log(track);
+        console.log(`adding track ${track.title} to playlist...`);
+        //console.log(track);
     },
     addFromList: function(collection){
         var self = this;
@@ -114,17 +116,18 @@ var VRAudioPlayer = {
 
             var obj = list[key];
             console.log('-------------');
+            console.log(`adding track ${obj.metadata.title} to playlist...`);
             console.log(obj);
             self.add(obj.coverURL, obj.audioURL, obj.metadata);
 
-            for (var prop in obj) {
+            /* for (var prop in obj) {
                 // skip loop if the property is from prototype
                 if(!obj.hasOwnProperty(prop)) continue;
 
                 // your code
                 //alert(prop + " = " + obj[prop]);
                 console.log(prop);
-            }
+            }*/ //no longer needed after 0.13.11 used for development/debugging purposes
         }
     },
     showTrackList : function(){

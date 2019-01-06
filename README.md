@@ -20,6 +20,8 @@ Developers can implement the module in both modular server-side and non-modular 
 npm install vraudioplayer
 ```
  2. import vraudioplayer (using the 'require' method is recommended; some Node releases do not have the newest ES6 features enabled by default)
+ 
+ 3. add audio files to your playlist then build it
 
  (a) using add method
 ```javascript
