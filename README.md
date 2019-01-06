@@ -8,6 +8,10 @@ The **_VRAudioPlayer_** generates an audio player that users can experience in v
 
 Developers can implement the module in both modular server-side and non-modular client-side applications with just a few lines of JavaScript code.
 
+## Examples:
+
+* build and share your own vr music playlist
+
 ## Usage:
 
 [Server-side](#server-side)
