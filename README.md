@@ -4,9 +4,9 @@ for kiesse and melissa
 
 an audio player for web VR experiences and distributed applications
 
-The **_VRAudioPlayer_** generates an audio player that users can experience in virtual reality through their web browser on mobile, laptop, desktop, or tablet devices. Experiences are produced using Three.js/AFrame to achieve a secure, cross-platform standard for sharing audio on the Immersive Web.
+The **_VRAudioPlayer_** generates an audio player that users can experience in virtual reality through a web browser on most mobile, laptop, desktop, or tablet devices. Experiences are produced using Three.js/AFrame to achieve a secure, cross-platform standard for sharing audio on the Immersive Web.
 
-As mentioned above, users can view content on a wide range of devices and formats. Developers can implement the module in both modular server-side and non-modular client-side applications with just a few lines of JavaScript code.
+Developers can implement the module in both modular server-side and non-modular client-side applications with just a few lines of JavaScript code.
 
 ## Usage:
 
@@ -19,12 +19,11 @@ As mentioned above, users can view content on a wide range of devices and format
 ```javascript
 npm install vraudioplayer
 ```
- 2. import vraudioplayer (using require is recommended: not all releases of Node have the newest ES6 features enabled by default)
+ 2. import vraudioplayer (using the 'require' method is recommended; some Node releases do not have the newest ES6 features enabled by default)
 
  (a) using add method
 ```javascript
-var XRMP = require('vraudioplayer');
-var myPlayer = XRMP.VRAudioPlayer;
+var myPlayer = require('vraudioplayer');
 
 myPlayer.add('../media/img/You.png', '../media/audio/You.mp3' , { title: 'you', author: 'Unibe@t', year: 2016});
 
@@ -44,8 +43,7 @@ myPlayer.spawn();
 an object or array of objects in the following format can be processed by the module to generate same outcome as above
 
 ```javascript
-var XRMP = require('vraudioplayer');
-var myPlayer = XRMP.VRAudioPlayer;
+var myPlayer = require('vraudioplayer');
 
 var collection = {
     'you': {

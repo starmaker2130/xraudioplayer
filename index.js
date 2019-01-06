@@ -426,4 +426,4 @@ var VRAudioPlayer = {
 }
 
 // expose log to other modules
-exports.XRAudioPlayer = XRAudioPlayer;
+module.exports = VRAudioPlayer;
