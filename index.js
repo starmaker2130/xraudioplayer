@@ -1,8 +1,10 @@
-var XRAudioPlayer = {
-    type: 'xraudio',
+var VRAudioPlayer = {
+    type: 'vraudio',
     socket : null,
     hello : function(){
-        console.log('testing testing 1 2 3');
+        console.log('----------------------');
+        console.log('hello world! \n this is the vraudioplayer v. 0.13.9 !! \n testing testing 1 2 3');
+        console.log('----------------------');
     },
     buildCoreMarkup: function(trackNumber){
         var track = trackNumber;
@@ -24,13 +26,13 @@ var XRAudioPlayer = {
         <!DOCTYPE html>
         <html>
         <head>
-            <title>XRAudioPlayer| spawn| v. 0.12.3</title>
+            <title>VRAudioPlayer| spawn| v. 0.13.9</title>
             <link rel=stylesheet type="text/css" href='../../css/XRMP.css' />
             <script src='../js/jquery-3.2.1.min.js'></script>
             <script src='../js/aframe.min.js'></script>
             <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
             <script src='../js/coreUX.js'></script> <!-- handles movement, styling, and interactivity of core ui components in the dom -->
-            <script src='../js/XRAudioPlayer.js'></script> <!-- contains the class function for creating xr audio player objects -->
+            <script src='../js/VRAudioPlayer.js'></script> <!-- contains the class function for creating vr audio player objects -->
             <script>
 
                 document.addEventListener('DOMContentLoaded', function(){
@@ -64,13 +66,13 @@ var XRAudioPlayer = {
         //var fileContent = base;
 
         // The absolute path of the new file with its name
-        var filepath = "./room/sample.html";
+        var filepath = "./room/vrsampleplaylist.html";
 
         var fs = require('fs');
 
         fs.writeFile(filepath, finalDraft, (err) => {
             if (err) throw err;
-
+            console.log('saving playlist as "vrsampleplaylist.html" in "$_project_dir/rooms/"...');
             console.log("The file was succesfully saved!");
         }); 
     },

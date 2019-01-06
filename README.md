@@ -1,14 +1,12 @@
-# XRAudioPlayer
+# VRAudioPlayer
 
-for emily
+for kiesse and melissa
 
-an audio player for web XR experiences and distributed applications
+an audio player for web VR experiences and distributed applications
 
-The **_XRAudioPlayer_** is a subset of the experimental **_XRMediaPlayer_** object. The latter is going to be under heavy development as of the end of this week given the start of the winter term (expected release: February 2, 2019).
+The **_VRAudioPlayer_** generates an audio player that users can experience in virtual reality through their web browser on mobile, laptop, desktop, or tablet devices. Experiences are produced using Three.js/AFrame to achieve a secure, cross-platform standard for sharing audio on the Immersive Web.
 
-**_XRAudioPlayer_** as the name suggests generates an audio player that users can experience in VR, AR, or traditional flat modes. Experiences at their core use Three.js/AFrame to achieve a secure, cross-platform standard for immersive web experiences.
-
-Users can view content using a wide range of devices and formats. Developers can implement the module in both modular server-side and non-modular client-side applications with just a few lines of JavaScript code.
+As mentioned above, users can view content on a wide range of devices and formats. Developers can implement the module in both modular server-side and non-modular client-side applications with just a few lines of JavaScript code.
 
 ## Usage:
 
@@ -19,18 +17,24 @@ Users can view content using a wide range of devices and formats. Developers can
 ### Server-Side
  1. install using npm
 ```javascript
-npm install xraudioplayer
+npm install vraudioplayer
 ```
- 2. import xraudioplayer (using require is recommended: not all releases of Node have the newest ES6 features enabled by default)
+ 2. import vraudioplayer (using require is recommended: not all releases of Node have the newest ES6 features enabled by default)
 
  (a) using add method
 ```javascript
-var XRMP = require('xraudioplayer');
-var myPlayer = XRMP.XRAudioPlayer;
+var XRMP = require('vraudioplayer');
+var myPlayer = XRMP.VRAudioPlayer;
 
-myPlayer.add('../media/img/OracularSpectacular.png', '../media/audio/TheYouth.mp3' , { title: 'The Youth', author: 'MGMT', year: 2007});
+myPlayer.add('../media/img/You.png', '../media/audio/You.mp3' , { title: 'you', author: 'Unibe@t', year: 2016});
 
-myPlayer.add('../media/img/ExtraFine.png', '../media/audio/ExtraFine.mp3', { title: 'Extra Fine', author: 'Starmaker', year: 2019});
+myPlayer.add('../media/img/ReadyOrNot.png', '../media/audio/ReadyOrNot.mp3' , { title: 'Ready or Not', author: 'ConsciousThoughts', year: 2016});
+
+myPlayer.add('../media/img/HighedUp.png', '../media/audio/HighedUp.mp3' , { title: 'HIGHED UP', author: 'SOUDIERE ft. kloudbug', year: 2016});
+
+myPlayer.add('../media/img/ServinFeens.png', '../media/audio/ServinFeens.mp3', { title: 'SERVIN FEENS', author: 'mythic', year: 2016});
+
+myPlayer.add('../media/img/0001.png', '../media/audio/WaterToWine.mp3' , { title: 'Water to Wine', author: 'KAYTRANADA ft. Kali Uchis', year: 2016});
 
 myPlayer.spawn();
 ```
@@ -40,31 +44,59 @@ myPlayer.spawn();
 an object or array of objects in the following format can be processed by the module to generate same outcome as above
 
 ```javascript
-var XRMP = require('xraudioplayer');
-var myPlayer = XRMP.XRAudioPlayer;
+var XRMP = require('vraudioplayer');
+var myPlayer = XRMP.VRAudioPlayer;
 
 var collection = {
-    'The Youth': {
-        coverURL: '../media/audio/TheYouth.png',
-        audioURL: '../media/audio/TheYouth.mp3',
-        {
-            title: 'The Youth',
-            author: 'MGMT',
-            year: 2007
+    'you': {
+        coverURL: '../media/img/You.png',
+        audioURL: '../media/audio/You.mp3',
+        metadata: {
+            title: 'you',
+            author: 'Unibe@t',
+            year: 2016
         }
     },
-    'Extra Fine': {
-        coverURL: '../media/audio/ExtraFine.png',
-        audioURL: '../media/audio/ExtraFine.mp3',
-        {
-            title: 'Extra Fine',
-            author: 'Starmaker',
-            year: 2019
+    'Ready or Not': {
+        coverURL: '../media/img/ReadyOrNot.png',
+        audioURL: '../media/audio/ReadyOrNot.mp3',
+        metadata: {
+            title: 'Ready or Not',
+            author: 'ConsciousThoughts',
+            year: 2016
+        }
+    },
+    'Highed Up': {
+        coverURL: '../media/img/HighedUp.png',
+        audioURL: '../media/audio/HighedUp.mp3',
+        metadata: {
+            title: 'HIGHED UP',
+            author: 'SOUDIERE ft. kloudbug',
+            year: 2016
+        }
+    },
+    'SERVIN FEENS': {
+        coverURL: '../media/img/ServinFeens.png',
+        audioURL: '../media/audio/ServinFeens.mp3',
+        metadata: {
+            title: 'SERVIN FEENS',
+            author: 'mythic',
+            year: 2016
+        }
+    },
+    'Water to Wine': {
+        coverURL: '../media/img/00001.png',
+        audioURL: '../media/audio/WaterToWine.mp3',
+        metadata: {
+            title: 'Water to Wine',
+            author: 'KAYTRANADA ft. Kali Uchis',
+            year: 2016
         }
     }
 };
 
 myPlayer.addFromList(collection);
+
 myPlayer.spawn();
 ```
 
@@ -75,10 +107,18 @@ myPlayer.spawn();
 3. implement as follows:
 
 ```javascript
-var myPlayer = new XRAudioPlayer();
+var myPlayer = new VRAudioPlayer();
 myPlayer.build();
 
-myPlayer.add('../media/img/OracularSpectacular.png', '../media/audio/TheYouth.mp3' , { title: 'The Youth', author: 'MGMT', year: 2007});
+myPlayer.add('../media/img/You.png', '../media/audio/You.mp3' , { title: 'you', author: 'Unibe@t', year: 2016});
+
+myPlayer.add('../media/img/ReadyOrNot.png', '../media/audio/ReadyOrNot.mp3' , { title: 'Ready or Not', author: 'ConsciousThoughts', year: 2016});
+
+myPlayer.add('../media/img/HighedUp.png', '../media/audio/HighedUp.mp3' , { title: 'HIGHED UP', author: 'SOUDIERE ft. kloudbug', year: 2016});
+
+myPlayer.add('../media/img/ServinFeens.png', '../media/audio/ServinFeens.mp3', { title: 'SERVIN FEENS', author: 'mythic', year: 2016});
+
+myPlayer.add('../media/img/0001.png', '../media/audio/WaterToWine.mp3' , { title: 'Water to Wine', author: 'KAYTRANADA ft. Kali Uchis', year: 2016});
 
 coreEventListeners.launch([myPlayer]);
 ```

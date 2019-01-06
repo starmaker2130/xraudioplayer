@@ -1,19 +1,19 @@
 {
-  "name": "xraudioplayer",
-  "version": "0.12.30",
-  "description": "audio player interface for web xr projects made by patrice-morgan ongoly for the house of venus",
+  "name": "vraudioplayer",
+  "version": "0.13.9",
+  "description": "audio player interface for web vr projects made by patrice-morgan ongoly for the house of venus",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/starmaker2130/xraudioplayer.git"
+    "url": "git+https://github.com/starmaker2130/vraudioplayer.git"
   },
   "author": "Patrice-Morgan Ongoly (http://houseofven.us)",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/starmaker2130/xraudioplayer/issues"
+    "url": "https://github.com/starmaker2130/vraudioplayer/issues"
   },
-  "homepage": "https://github.com/starmaker2130/xraudioplayer#readme"
+  "homepage": "https://github.com/starmaker2130/vraudioplayer#readme"
 }
