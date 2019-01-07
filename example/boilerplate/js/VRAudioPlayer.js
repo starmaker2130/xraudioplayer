@@ -66,11 +66,13 @@ VRAudioPlayer.prototype.showTrackList = function(){
 };
 
 VRAudioPlayer.prototype.playNextTrack = function(){
-    console.log('TODO: add play next track method');
+    var self = this;
+    self.application.core.playNextTrack();
 }
 
 VRAudioPlayer.prototype.playPreviousTrack= function(){
-    console.log('TODO: add play previous track method');
+    var self = this;
+    self.application.core.playPreviousTrack();
 };
 
 VRAudioPlayer.prototype.stream= function(){
@@ -92,6 +94,56 @@ VRAudioPlayer.prototype.application = {
         }
     },
     core: {
+        playNextTrack: function(){
+            var self = this;
+            
+            self.stop();
+            // stop playing
+
+            if(self.index+1==self.trackList.length){
+                self.index=0;
+            }
+            else{
+                self.index = self.index+1;
+            }
+            console.log(`playing ${self.trackList[self.index].audio}`);
+
+            document.querySelector('#song-title-container').setAttribute('value', self.trackList[self.index].title);
+            document.querySelector('#meta-data-container').setAttribute('value', `author: ${self.trackList[self.index].author} \n\n year: ${self.trackList[self.index].year}`);
+
+            document.querySelector('#audio-cover-artwork').setAttribute('material', `src:#${self.trackList[self.index].texture}; side: double;`);
+
+            console.log(self.trackList[self.index].texture);
+
+            self.source.setAttribute('src', self.trackList[self.index].audio);
+            self.player.setAttribute('src', self.trackList[self.index].audio);
+            self.play();
+        },
+        playPreviousTrack: function(){
+            var self = this;
+            
+            self.stop();
+            // stop playing
+
+            if(self.index-1==-1){
+                self.index=self.trackList.length-1;
+            }
+            else{
+                self.index = self.index-1;
+            }
+            console.log(`playing ${self.trackList[self.index].audio}`);
+
+            document.querySelector('#song-title-container').setAttribute('value', self.trackList[self.index].title);
+            document.querySelector('#meta-data-container').setAttribute('value', `author: ${self.trackList[self.index].author} \n\n year: ${self.trackList[self.index].year}`);
+
+            document.querySelector('#audio-cover-artwork').setAttribute('material', `src:#${self.trackList[self.index].texture}; side: double;`);
+
+            console.log(self.trackList[self.index].texture);
+
+            self.source.setAttribute('src', self.trackList[self.index].audio);
+            self.player.setAttribute('src', self.trackList[self.index].audio);
+            self.play();
+        },
         assetsContainer: null,
         index: -1,
         trackList: [],
@@ -159,6 +211,16 @@ VRAudioPlayer.prototype.application = {
 
             self.index=0;
 
+            $('#play-next-track-button').click(function(){
+                console.log('play the next song in the track list');
+                self.playNextTrack();
+            });
+            
+            $('#play-previous-track-button').click(function(){
+                console.log('play the previous song in the track list');
+                self.playPreviousTrack(); 
+            });
+            
             document.querySelector('#song-title-container').setAttribute('value', self.trackList[self.index].title);
 
             document.querySelector('#meta-data-container').setAttribute('value', `author: ${self.trackList[self.index].author} \n\n year: ${self.trackList[self.index].year}`);
@@ -324,7 +386,10 @@ VRAudioPlayer.prototype.application = {
                         <a-camera look-controls wasd-controls userHeight='1.8'></a-camera>
                     </a-entity>
                     <a-sky color='skyblue'></a-sky>
-                </a-scene><div style='position: absolute; width: 300px; height: 55px; border-radius: 25px; display: block; bottom: 5%; left: 50%; margin-left: -150px; z-index: 100; background-color: rgba(255, 255, 255, 0.7); cursor: pointer;'>
+                </a-scene>
+<input type='button' id='play-previous-track-button' class='skip-track-button' value ='<' />
+    <input type='button' id='play-next-track-button' class='skip-track-button' value ='>' />
+    <div style='position: absolute; width: 300px; height: 55px; border-radius: 25px; display: block; bottom: 5%; left: 50%; margin-left: -150px; z-index: 100; background-color: rgba(255, 255, 255, 0.7); cursor: pointer;'>
     <audio id='html5-audio-player' controls>
       <source id='static-selector' src="" type="audio/mpeg">
     Your browser does not support the audio element.
@@ -337,4 +402,4 @@ VRAudioPlayer.prototype.application = {
 
 VRAudioPlayer.prototype.view = 'scroll'; // scroll is the default, list is the secondary option, tertiary mode is the alternative AR or VR view
 
-VRAudioPlayer.prototype.XRSetting = 'flat'; // flat is default, ar is secondary, vr is tertiary
+VRAudioPlayer.prototype.XRSetting = 'vr';

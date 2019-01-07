@@ -1,6 +1,6 @@
 {
   "name": "vraudioplayer",
-  "version": "0.13.14",
+  "version": "0.14.0",
   "description": "audio player interface for web VR projects made by Patrice-Morgan Ongoly for the House of Venus",
   "main": "index.js",
   "scripts": {
