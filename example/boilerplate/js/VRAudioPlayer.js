@@ -337,7 +337,7 @@ VRAudioPlayer.prototype.application = {
                                      fill="forwards"
                                      to="0.5">
                         </a-animation>
-                        <a-entity geometry='primitive: plane; width: 2; height: 2;' position='-1.5 0 0.1' material='side: double; color: black; opacity: 0'  text='align: center; value: House of Venus\n\n (c) 2018; color: white; width: 5; font: https://cdn.aframe.io/fonts/mozillavr.fnt'>
+                        <a-entity geometry='primitive: plane; width: 2; height: 2;' position='-1.5 0 0.1' material='side: double; color: black; opacity: 0'  text='align: center; value: House of Venus\n\n (c) 2019; color: white; width: 5; font: https://cdn.aframe.io/fonts/mozillavr.fnt'>
                             <a-animation attribute="material.opacity"
                                      delay="3500"
                                      dur='2500'
