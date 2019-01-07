@@ -437,4 +437,4 @@ var XRAudioPlayer = {
 }
 
 // expose log to other modules
-exports.XRAudioPlayer = XRAudioPlayer;
+module.exports = XRAudioPlayer;
