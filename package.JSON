@@ -1,6 +1,6 @@
 {
   "name": "xraudioplayer",
-  "version": "0.14.0",
+  "version": "0.14.1",
   "description": "audio player interface for web XR projects made by Patrice-Morgan Ongoly for the House of Venus",
   "main": "index.js",
   "scripts": {

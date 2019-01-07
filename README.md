@@ -25,8 +25,7 @@ npm install xraudioplayer
 
  (a) using add method
 ```javascript
-var XRMP = require('xraudioplayer');
-var myPlayer = XRMP.XRAudioPlayer;
+var myPlayer= require('xraudioplayer');
 
 myPlayer.add('../media/img/OracularSpectacular.png', '../media/audio/TheYouth.mp3' , { title: 'The Youth', author: 'MGMT', year: 2007});
 
@@ -40,8 +39,7 @@ myPlayer.spawn();
 an object or array of objects in the following format can be processed by the module to generate same outcome as above
 
 ```javascript
-var XRMP = require('xraudioplayer');
-var myPlayer = XRMP.XRAudioPlayer;
+var myPlayer= require('xraudioplayer');
 
 var collection = {
     'The Youth': {

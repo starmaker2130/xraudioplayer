@@ -24,7 +24,7 @@ var XRAudioPlayer = {
         <!DOCTYPE html>
         <html>
         <head>
-            <title>XRAudioPlayer| spawn| v. 0.12.3</title>
+            <title>XRAudioPlayer | v. 0.14.1</title>
             <link rel=stylesheet type="text/css" href='../../css/XRMP.css' />
             <script src='../js/jquery-3.2.1.min.js'></script>
             <script src='../js/aframe.min.js'></script>
