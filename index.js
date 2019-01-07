@@ -26,7 +26,7 @@ var VRAudioPlayer = {
         <!DOCTYPE html>
         <html>
         <head>
-            <title>VRAudioPlayer| spawn| v. 0.13.9</title>
+            <title>VRAudioPlayer| spawn| v. 1.0.0</title>
             <link rel=stylesheet type="text/css" href='../../css/XRMP.css' />
             <script src='../js/jquery-3.2.1.min.js'></script>
             <script src='../js/aframe.min.js'></script>
@@ -36,7 +36,7 @@ var VRAudioPlayer = {
             <script>
 
                 document.addEventListener('DOMContentLoaded', function(){
-                    var player = new VRAudioPlayer();   //create an xr audio player object
+                    var player = new VRAudioPlayer();   //create an vr audio player object
                     player.build();`;
         
         var base = `coreEventListeners.launch([player]);    //  tell the core page launcher to start 
@@ -439,7 +439,7 @@ var VRAudioPlayer = {
                                      to="0.5">
                         </a-animation>
                         </a-entity>
-                        <a-entity geometry='primitive: plane; width: 2; height: 2;' position='1.5 0 0.1' material='side: double; color: black; opacity: 0' text='align: center; value: XR Audio Player\n\nv. 0.12.3; color: white; width: 5; font: https://cdn.aframe.io/fonts/mozillavr.fnt'>
+                        <a-entity geometry='primitive: plane; width: 2; height: 2;' position='1.5 0 0.1' material='side: double; color: black; opacity: 0' text='align: center; value: VR Audio Player\n\nv. 1.0.0; color: white; width: 5; font: https://cdn.aframe.io/fonts/mozillavr.fnt'>
                             <a-animation attribute="material.opacity"
                                      delay="3500"
                                      dur='2500'
