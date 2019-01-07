@@ -14,6 +14,7 @@ XRAudioPlayer.prototype.build = function(){
     var self = this;
     self.application.core.tether = $('#main-app-container');
     self.application.core.build();
+    self.assetsContainer = self.application.core.assetsContainer;
 };
 
 XRAudioPlayer.prototype.add = function(coverURL, audioURL, metadata){
@@ -62,15 +63,21 @@ XRAudioPlayer.prototype.addFromList = function(collection){
 }
 
 XRAudioPlayer.prototype.showTrackList = function(){
-    console.log('TODO: show track list method');
+    var self = this;
+    self.application.core.trackList;
+    for(var i=0; i<self.application.core.trackList.length; i++){
+        console.log(self.application.core.trackList[i].title);
+    }
 };
 
 XRAudioPlayer.prototype.playNextTrack = function(){
-    console.log('TODO: add play next track method');
+    var self = this;
+    self.application.core.playNextTrack();
 }
 
 XRAudioPlayer.prototype.playPreviousTrack= function(){
-    console.log('TODO: add play previous track method');
+    var self = this;
+    self.application.core.playPreviousTrack();
 };
 
 XRAudioPlayer.prototype.stream= function(){
@@ -92,6 +99,56 @@ XRAudioPlayer.prototype.application = {
         }
     },
     core: {
+        playNextTrack: function(){
+            var self = this;
+            
+            self.stop();
+            // stop playing
+
+            if(self.index+1==self.trackList.length){
+                self.index=0;
+            }
+            else{
+                self.index = self.index+1;
+            }
+            console.log(`playing ${self.trackList[self.index].audio}`);
+
+            document.querySelector('#song-title-container').setAttribute('value', self.trackList[self.index].title);
+            document.querySelector('#meta-data-container').setAttribute('value', `author: ${self.trackList[self.index].author} \n\n year: ${self.trackList[self.index].year}`);
+
+            document.querySelector('#audio-cover-artwork').setAttribute('material', `src:#${self.trackList[self.index].texture}; side: double;`);
+
+            console.log(self.trackList[self.index].texture);
+
+            self.source.setAttribute('src', self.trackList[self.index].audio);
+            self.player.setAttribute('src', self.trackList[self.index].audio);
+            self.play();
+        },
+        playPreviousTrack: function(){
+            var self = this;
+            
+            self.stop();
+            // stop playing
+
+            if(self.index-1==-1){
+                self.index=self.trackList.length-1;
+            }
+            else{
+                self.index = self.index-1;
+            }
+            console.log(`playing ${self.trackList[self.index].audio}`);
+
+            document.querySelector('#song-title-container').setAttribute('value', self.trackList[self.index].title);
+            document.querySelector('#meta-data-container').setAttribute('value', `author: ${self.trackList[self.index].author} \n\n year: ${self.trackList[self.index].year}`);
+
+            document.querySelector('#audio-cover-artwork').setAttribute('material', `src:#${self.trackList[self.index].texture}; side: double;`);
+
+            console.log(self.trackList[self.index].texture);
+
+            self.source.setAttribute('src', self.trackList[self.index].audio);
+            self.player.setAttribute('src', self.trackList[self.index].audio);
+            self.play();
+        },
         assetsContainer: null,
         index: -1,
         trackList: [],
@@ -177,9 +234,11 @@ XRAudioPlayer.prototype.application = {
         },
         build: function(){
             var self = this;
-            
-            self.tether.append(`<a-scene embedded>
-                    <a-assets id="embedded-assets-container">
+        
+            self.dom.body.append(`<select id='videoSource'></select><input id='select-option-button' class='option-button' type='button' value='o' /><input id='prev-option-button' class='option-button' type='button' value='<' /><input id='next-option-button' class='option-button' type='button' value='>' /><video id="video" autoplay></video>`);
+                
+            self.tether.append(`<a-scene embedded id='rfid-experience-container'>
+                        <a-assets id="embedded-assets-container" timeout='20000'>
                         <img id='floor-texture' src='../media/texture/grid_pattern.png' preload='true' />
                         <img id='starter' src='../media/img/hov-md.png' preload='true' />
                         <a-asset-item id="crate-obj" src="../media/model/omega.obj"></a-asset-item>
@@ -320,21 +379,21 @@ XRAudioPlayer.prototype.application = {
                                      to='0'></a-animation>
                     </a-entity>
 
-                    <a-entity position="2 0 2" rotation='0 45 0'>
-                        <a-camera look-controls wasd-controls userHeight='1.8'></a-camera>
+                    <a-entity position="0 3 3">            
+                        <a-entity camera="active: true" look-controls wasd-controls></a-entity>
                     </a-entity>
-                    <a-sky color='skyblue'></a-sky>
+                    <a-sky material='transparent: true; opacity: 0; color: white;'>
+                    </a-sky>
                 </a-scene><div style='position: absolute; width: 300px; height: 55px; border-radius: 25px; display: block; bottom: 5%; left: 50%; margin-left: -150px; z-index: 100; background-color: rgba(255, 255, 255, 0.7); cursor: pointer;'>
     <audio id='html5-audio-player' controls>
       <source id='static-selector' src="" type="audio/mpeg">
     Your browser does not support the audio element.
     </audio>
 </div>`);
-            self.assetsContainer = $('#embedded-assets-container');
-        }
+                //self.loadCoverTextures();
     }
 };
 
 XRAudioPlayer.prototype.view = 'scroll'; // scroll is the default, list is the secondary option, tertiary mode is the alternative AR or VR view
 
-XRAudioPlayer.prototype.XRSetting = 'flat'; // flat is default, ar is secondary, vr is tertiary
+XRAudioPlayer.prototype.XRSetting = 'xr';

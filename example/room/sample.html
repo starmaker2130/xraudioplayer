@@ -10,6 +10,52 @@
             <script src='../js/coreUX.js'></script> <!-- handles movement, styling, and interactivity of core ui components in the dom -->
             <script src='../js/XRAudioPlayer.js'></script> <!-- contains the class function for creating xr audio player objects -->
             <script>
+                <!---->
+                function gotDevices(deviceInfos) {
+                    var videoSelect = document.querySelector('select#videoSource');
+                    for (var i = 0; i !== deviceInfos.length; ++i) {
+                        var deviceInfo = deviceInfos[i];
+                        var option = document.createElement('option');
+                        option.value = deviceInfo.deviceId;
+
+                        if (deviceInfo.kind === 'videoinput') {
+                            option.text = deviceInfo.label || 'camera ' + (videoSelect.length + 1);
+                            videoSelect.appendChild(option);
+                        }
+                        else {
+                            console.log('Found one other kind of source/device: ', deviceInfo);
+                        }
+                    }
+                }
+
+                function getStream() {
+                    var videoSelect = document.querySelector('select#videoSource');
+
+                    if (window.stream) {
+                        window.stream.getTracks().forEach(function(track) {
+                            track.stop();
+                        });
+                    }
+
+                    var constraints = {
+                        video: {
+                            deviceId: {exact: videoSelect.value}
+                        }
+                    };
+
+                    navigator.mediaDevices.getUserMedia(constraints).then(gotStream).catch(handleError);
+                }
+
+                function gotStream(stream) {
+                    window.stream = stream; // make stream available to console
+                    video.srcObject = stream;
+                    //video.play();
+                }
+
+                function handleError(error) {
+                    console.log('Error: ', error);
+                }
+                <!---->
 
                 document.addEventListener('DOMContentLoaded', function(){
                     var player = new XRAudioPlayer();   //create an xr audio player object

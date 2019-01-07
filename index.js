@@ -79,6 +79,10 @@ var XRAudioPlayer = {
         console.log('spawning');
         var self = this;
         self.application.core.tether = $('#main-app-container');
+        self.application.core.dom = {
+            html: $('html'),
+            body: $('body')
+        };
         self.assetsContainer = $('#embedded-assets-container');
         self.application.core.build();
     },
@@ -256,15 +260,23 @@ var XRAudioPlayer = {
                 self.play();
             },
             tether: null,
+            dom: null,
             makeTextureLoader: function(index){
                 var target = index;
                 $('#embedded-assets-container').append(`<img id='${target.texture}' src='${target.cover}' preload='true' />`);
             },
             build: function(){
                 var self = this;
-
-                self.tether.append(`<a-scene embedded>
-                        <a-assets id="embedded-assets-container">
+                
+                self.dom.body.append(`<select id='videoSource'></select>
+    <input id='select-option-button' class='option-button' type='button' value='o' />
+    <input id='prev-option-button' class='option-button' type='button' value='<' />
+    <input id='next-option-button' class='option-button' type='button' value='>' />
+    
+    <video id="video" autoplay></video>`);
+                
+                self.tether.append(`<a-scene embedded id='rfid-experience-container'>
+                        <a-assets id="embedded-assets-container" timeout='20000'>
                         <img id='floor-texture' src='../media/texture/grid_pattern.png' preload='true' />
                         <img id='starter' src='../media/img/hov-md.png' preload='true' />
                         <a-asset-item id="crate-obj" src="../media/model/omega.obj"></a-asset-item>
@@ -405,10 +417,11 @@ var XRAudioPlayer = {
                                      to='0'></a-animation>
                     </a-entity>
 
-                    <a-entity position="2 0 2" rotation='0 45 0'>
-                        <a-camera look-controls wasd-controls userHeight='1.8'></a-camera>
+                    <a-entity position="0 3 3">            
+                        <a-entity camera="active: true" look-controls wasd-controls></a-entity>
                     </a-entity>
-                    <a-sky color='skyblue'></a-sky>
+                    <a-sky material='transparent: true; opacity: 0; color: white;'>
+                    </a-sky>
                 </a-scene><div style='position: absolute; width: 300px; height: 55px; border-radius: 25px; display: block; bottom: 5%; left: 50%; margin-left: -150px; z-index: 100; background-color: rgba(255, 255, 255, 0.7); cursor: pointer;'>
     <audio id='html5-audio-player' controls>
       <source id='static-selector' src="" type="audio/mpeg">
