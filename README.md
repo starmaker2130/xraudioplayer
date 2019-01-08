@@ -4,11 +4,12 @@ for emily
 
 an audio player for web XR experiences and distributed applications
 
-The **_XRAudioPlayer_** is a subset of the experimental **_XRMediaPlayer_** object. The latter is going to be under heavy development as of the end of this week given the start of the winter term (expected release: February 2, 2019).
+The **_XRAudioPlayer_** generates an audio player that users can experience in augmented reality through a web browser on most mobile, laptop, desktop, or tablet devices. Experiences are produced using Three.js/AFrame to achieve a secure, cross-platform standard for sharing audio on the Immersive Web.
 
-**_XRAudioPlayer_** as the name suggests generates an audio player that users can experience in VR, AR, or traditional flat modes. Experiences at their core use Three.js/AFrame to achieve a secure, cross-platform standard for immersive web experiences.
+Developers can implement the module in both modular server-side and non-modular client-side applications with just a few lines of JavaScript code.
 
-Users can view content using a wide range of devices and formats. Developers can implement the module in both modular server-side and non-modular client-side applications with just a few lines of JavaScript code.
+## Examples:
+* Build and Share Your Own XR Music Playlist
 
 ## Usage:
 
