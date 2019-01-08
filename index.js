@@ -83,8 +83,8 @@ var XRAudioPlayer = {
             html: $('html'),
             body: $('body')
         };
-        self.assetsContainer = $('#embedded-assets-container');
         self.application.core.build();
+        self.assetsContainer = self.application.core.assetsContainer;
     },
     add : function(coverURL, audioURL, metadata){
         var self = this;
@@ -130,13 +130,19 @@ var XRAudioPlayer = {
         }
     },
     showTrackList : function(){
-        console.log('TODO: show track list method');
+        var self = this;
+        self.application.core.trackList;
+        for(var i=0; i<self.application.core.trackList.length; i++){
+            console.log(self.application.core.trackList[i].title);
+        }
     },
     playNextTrack : function(){
-        console.log('TODO: add play next track method');
+        var self = this;
+        self.application.core.playNextTrack();
     },
     playPreviousTrack: function(){
-        console.log('TODO: add play previous track method');
+        var self = this;
+        self.application.core.playPreviousTrack();
     },
     stream: function(){     
         var self = this;
@@ -192,7 +198,7 @@ var XRAudioPlayer = {
             }
         },
         core: {
-            
+            assetsContainer: null,
             index: -1,
             trackList: [],
             spawn: function(){
@@ -248,8 +254,19 @@ var XRAudioPlayer = {
                     self.play();
                     self.index++;
                 });
-
+                
                 self.index=0;
+                
+                $('#play-next-track-button').click(function(){
+                    console.log('play the next song in the track list');
+                    self.playNextTrack();
+                });
+
+                $('#play-previous-track-button').click(function(){
+                    console.log('play the previous song in the track list');
+                    self.playPreviousTrack(); 
+                });
+                
                 document.querySelector('#song-title-container').setAttribute('value', self.trackList[self.index].title);
 
                 document.querySelector('#meta-data-container').setAttribute('value', `author: ${self.trackList[self.index].author} \n\n year: ${self.trackList[self.index].year}`);
@@ -276,7 +293,7 @@ var XRAudioPlayer = {
     <video id="video" autoplay></video>`);
                 
                 self.tether.append(`<a-scene embedded id='rfid-experience-container'>
-                        <a-assets id="embedded-assets-container" timeout='20000'>
+                    <a-assets  timeout='20000' id="embedded-assets-container">
                         <img id='floor-texture' src='../media/texture/grid_pattern.png' preload='true' />
                         <img id='starter' src='../media/img/hov-md.png' preload='true' />
                         <a-asset-item id="crate-obj" src="../media/model/omega.obj"></a-asset-item>
@@ -422,18 +439,20 @@ var XRAudioPlayer = {
                     </a-entity>
                     <a-sky material='transparent: true; opacity: 0; color: white;'>
                     </a-sky>
-                </a-scene><div style='position: absolute; width: 300px; height: 55px; border-radius: 25px; display: block; bottom: 5%; left: 50%; margin-left: -150px; z-index: 100; background-color: rgba(255, 255, 255, 0.7); cursor: pointer;'>
+                </a-scene><input type='button' id='play-previous-track-button' class='skip-track-button' value ='<' />
+    <input type='button' id='play-next-track-button' class='skip-track-button' value ='>' />
+    <div style='position: absolute; width: 300px; height: 55px; border-radius: 25px; display: block; bottom: 5%; left: 50%; margin-left: -150px; z-index: 100; background-color: rgba(255, 255, 255, 0.7); cursor: pointer;'>
     <audio id='html5-audio-player' controls>
       <source id='static-selector' src="" type="audio/mpeg">
     Your browser does not support the audio element.
     </audio>
 </div>`);
-                //self.loadCoverTextures();
+                self.assetsContainer = $('#embedded-assets-container');
         }
         }
     },
     view : 'scroll', // scroll is the default, list is the secondary option, tertiary mode is the alternative AR or VR view        
-    XRSetting : 'flat' // flat is default, ar is secondary, vr is tertiary
+    XRSetting : 'xr' // flat is default, ar is secondary, vr is tertiary
 }
 
 // expose log to other modules
